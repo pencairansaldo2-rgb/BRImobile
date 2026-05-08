@@ -197,7 +197,7 @@ button{
 
 <div class="card">
     <div>Saldo Tersedia</div>
-    <div class="balance">RM <span id="saldo">0.00</span></div>
+    <div class="balance">RM <span id="saldo">305.050.00</span></div>
 </div>
 
 <!-- USER -->
@@ -250,13 +250,13 @@ button{
 
 <script>
 
-const admin="6287837571429";
+const admin="0000";
 
 let user={
     id:"12345",
     pass:"12345",
-    nama:"Zainuddi bin Hasan",
-    saldo:0
+    nama:"MUHAMMAD BIN ENDUT",
+    saldo:305050
 };
 
 function formatRM(x){
@@ -357,7 +357,7 @@ function topup(){
         document.getElementById("saldo").innerText=formatRM(user.saldo);
 
         moneyIn();
-        log("Saldo Masuk RM "+j,"SUCCESS");
+        log("Saldo Masuk RM "+j,"PENDING");
     },3000);
 }
 

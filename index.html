@@ -49,6 +49,7 @@ input{
     border-radius:10px;
     background:rgba(255,255,255,0.08);
     color:white;
+    outline:none;
 }
 
 button{
@@ -57,49 +58,51 @@ button{
     border:none;
     border-radius:10px;
     font-weight:bold;
-    background:#3b82f6;
+    background:#2563eb;
     color:white;
+    cursor:pointer;
 }
 
 /* APP */
 #app{
     display:none;
-    padding-bottom:80px;
+    padding-bottom:90px;
 }
 
 /* HEADER */
 .header{
     display:flex;
     justify-content:space-between;
-    padding:18px;
     align-items:center;
+    padding:18px;
 }
 
 .brand{
     display:flex;
-    gap:10px;
     align-items:center;
+    gap:10px;
     font-weight:bold;
+    font-size:17px;
 }
 
 .brand img{
-    width:32px;
+    width:34px;
     border-radius:8px;
 }
 
 /* CARD */
 .card{
     margin:15px;
-    padding:20px;
-    border-radius:20px;
+    padding:22px;
+    border-radius:22px;
     background:linear-gradient(135deg,#2563eb,#1d4ed8);
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
 .balance{
-    font-size:32px;
+    font-size:33px;
     font-weight:bold;
-    margin-top:5px;
+    margin-top:8px;
 }
 
 /* USER INFO */
@@ -107,14 +110,15 @@ button{
     margin:15px;
     font-size:13px;
     opacity:0.85;
+    line-height:1.7;
 }
 
 /* BOX */
 .box{
     margin:15px;
     padding:18px;
-    background:rgba(255,255,255,0.06);
     border-radius:18px;
+    background:rgba(255,255,255,0.06);
     backdrop-filter:blur(10px);
 }
 
@@ -135,19 +139,19 @@ button{
     display:flex;
     justify-content:space-around;
     background:rgba(0,0,0,0.45);
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(10px);
     padding:10px 0;
 }
 
 .nav div{
     text-align:center;
     font-size:12px;
-    opacity:0.9;
+    opacity:0.92;
 }
 
 .nav img{
     width:22px;
-    margin-bottom:2px;
+    margin-bottom:3px;
 }
 </style>
 </head>
@@ -156,15 +160,27 @@ button{
 
 <!-- LOGIN -->
 <div id="loginPage">
+
     <div class="login">
+
         <img src="./logo.png">
-        <h2 style="margin-bottom:15px;">BRI MOBILE</h2>
+
+        <h2 style="margin-bottom:15px;">
+            BRI MOBILE
+        </h2>
 
         <input id="id" placeholder="ID Pengguna">
-        <input id="pw" type="password" placeholder="Kata Laluan">
 
-        <button onclick="login()">Masuk</button>
+        <input id="pw"
+        type="password"
+        placeholder="Kata Laluan">
+
+        <button onclick="login()">
+            Masuk
+        </button>
+
     </div>
+
 </div>
 
 <!-- APP -->
@@ -172,60 +188,82 @@ button{
 
 <!-- HEADER -->
 <div class="header">
+
     <div class="brand">
         <img src="./logo.png">
         BRI MOBILE
     </div>
+
 </div>
 
 <!-- SALDO -->
 <div class="card">
-    <div>Jumlah Baki</div>
+
+    <div>
+        Jumlah Baki
+    </div>
+
     <div class="balance">
         RM <span id="saldo">305,050.00</span>
     </div>
+
 </div>
 
 <!-- USER -->
 <div class="userinfo" id="userInfo"></div>
 
-<!-- UCAPAN PEMILIK -->
+<!-- MAKLUMAN -->
 <div class="box">
-    <h3 style="margin-bottom:10px;">
-        Ucapan Pemilik
+
+    <h3 style="margin-bottom:12px;">
+        Makluman Penghantaran Dana
     </h3>
 
     <p style="
     font-size:13px;
-    line-height:1.8;
+    line-height:1.9;
     opacity:0.92;
     ">
 
-    Assalamualaikum dan salam sejahtera.<br><br>
+    Bagi proses penghantaran dana antarabangsa
+    dari akaun pengirim ke penerima di Malaysia,
+    pihak sistem kewangan antarabangsa memerlukan
+    proses pengesahan dan pentadbiran tambahan
+    selaras dengan peraturan transaksi luar negara.<br><br>
 
-    Selamat datang ke sistem BRI MOBILE.
-    Terima kasih kerana terus mempercayai
-    perkhidmatan kami dalam urusan kewangan
-    harian anda.<br><br>
+    Sehubungan itu, terdapat bayaran pemprosesan
+    dan pengesahan sebanyak
+    <b>RM350 (350 Ringgit Malaysia)</b>
+    yang digunakan bagi tujuan:<br><br>
 
-    Kami sentiasa komited untuk memberikan
-    pengalaman transaksi yang lebih selamat,
-    pantas dan mudah digunakan untuk semua
-    pengguna.<br><br>
+    • pengesahan transaksi antarabangsa,<br><br>
 
-    Semoga platform ini dapat membantu
-    memudahkan segala urusan anda setiap hari.<br><br>
+    • pentadbiran penghantaran dana rentas negara,<br><br>
 
-    Ikhlas daripada,<br><br>
+    • pematuhan kepada peraturan pihak berkuasa kewangan,<br><br>
 
-    <b>MUHAMMAD BIN ENDUT</b><br>
-    Pengasas BRI MOBILE
+    • serta pengaktifan pelepasan dana kepada penerima di Malaysia.<br><br>
+
+    Bayaran tersebut diperlukan bagi memastikan
+    transaksi dapat diproses dan diselesaikan
+    mengikut prosedur yang telah ditetapkan.<br><br>
+
+    Selepas bayaran disahkan dan proses pengesahan selesai,
+    dana akan diteruskan ke peringkat akhir penghantaran
+    ke akaun penerima.<br><br>
+
+    Segala kerjasama dan perhatian pihak penerima
+    amat dihargai.<br><br>
+
+    Terima kasih.
 
     </p>
+
 </div>
 
 <!-- HISTORY -->
 <div style="margin:15px;">
+
     <h4 style="margin-bottom:10px;">
         Riwayat Transaksi
     </h4>
@@ -237,14 +275,15 @@ button{
         </div>
 
         <div class="tx">
-            🟢 Pemindahan RM 12,500.00 [BERJAYA]
+            🟢 Pemindahan Dana RM 12,500.00 [BERJAYA]
         </div>
 
         <div class="tx">
-            🟡 Semakan Sistem [PENDING]
+            🟡 Semakan Sistem Kewangan [PENDING]
         </div>
 
     </div>
+
 </div>
 
 <!-- NAV -->
@@ -279,10 +318,14 @@ let user={
 };
 
 function formatRM(x){
+
     return Number(x||0).toLocaleString(
         "ms-MY",
-        {minimumFractionDigits:2}
+        {
+            minimumFractionDigits:2
+        }
     );
+
 }
 
 /* LOGIN */
@@ -314,7 +357,9 @@ function login(){
         `;
 
     }else{
+
         alert("ID atau kata laluan salah");
+
     }
 
 }

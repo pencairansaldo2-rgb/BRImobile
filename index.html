@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="ms">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +62,10 @@ button{
 }
 
 /* APP */
-#app{display:none;}
+#app{
+    display:none;
+    padding-bottom:80px;
+}
 
 /* HEADER */
 .header{
@@ -90,67 +93,36 @@ button{
     padding:20px;
     border-radius:20px;
     background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
 .balance{
     font-size:32px;
     font-weight:bold;
+    margin-top:5px;
 }
 
 /* USER INFO */
 .userinfo{
     margin:15px;
     font-size:13px;
-    opacity:0.8;
-}
-
-/* MENU */
-.menu{
-    display:flex;
-    justify-content:space-around;
-    margin:15px;
-}
-
-.menu div{
-    text-align:center;
-    font-size:12px;
-    cursor:pointer;
-}
-
-.icon{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:rgba(255,255,255,0.08);
-    margin-bottom:5px;
-}
-
-.icon img{
-    width:28px;
+    opacity:0.85;
 }
 
 /* BOX */
 .box{
     margin:15px;
-    padding:15px;
+    padding:18px;
     background:rgba(255,255,255,0.06);
-    border-radius:15px;
-    display:none;
-}
-
-.btn{
-    background:#22c55e;
-    margin-top:8px;
+    border-radius:18px;
+    backdrop-filter:blur(10px);
 }
 
 /* HISTORY */
 .tx{
     background:rgba(255,255,255,0.05);
-    padding:10px;
-    border-radius:10px;
+    padding:12px;
+    border-radius:12px;
     margin-top:8px;
     font-size:13px;
 }
@@ -162,12 +134,20 @@ button{
     width:100%;
     display:flex;
     justify-content:space-around;
-    background:rgba(0,0,0,0.4);
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(8px);
     padding:10px 0;
+}
+
+.nav div{
+    text-align:center;
+    font-size:12px;
+    opacity:0.9;
 }
 
 .nav img{
     width:22px;
+    margin-bottom:2px;
 }
 </style>
 </head>
@@ -178,9 +158,11 @@ button{
 <div id="loginPage">
     <div class="login">
         <img src="./logo.png">
-        <h2>BRI MOBILE</h2>
-        <input id="id" placeholder="ID">
-        <input id="pw" type="password" placeholder="Password">
+        <h2 style="margin-bottom:15px;">BRI MOBILE</h2>
+
+        <input id="id" placeholder="ID Pengguna">
+        <input id="pw" type="password" placeholder="Kata Laluan">
+
         <button onclick="login()">Masuk</button>
     </div>
 </div>
@@ -188,6 +170,7 @@ button{
 <!-- APP -->
 <div id="app">
 
+<!-- HEADER -->
 <div class="header">
     <div class="brand">
         <img src="./logo.png">
@@ -195,62 +178,98 @@ button{
     </div>
 </div>
 
+<!-- SALDO -->
 <div class="card">
-    <div>Saldo Tersedia</div>
-    <div class="balance">RM <span id="saldo">305.050.00</span></div>
+    <div>Jumlah Baki</div>
+    <div class="balance">
+        RM <span id="saldo">305,050.00</span>
+    </div>
 </div>
 
 <!-- USER -->
 <div class="userinfo" id="userInfo"></div>
 
-<!-- MENU -->
-<div class="menu">
+<!-- UCAPAN PEMILIK -->
+<div class="box">
+    <h3 style="margin-bottom:10px;">
+        Ucapan Pemilik
+    </h3>
 
-    <div onclick="show('topup')">
-        <div class="icon"><img src="./logo.png"></div>
-        Top Up
-    </div>
+    <p style="
+    font-size:13px;
+    line-height:1.8;
+    opacity:0.92;
+    ">
 
-    <div onclick="show('wd')">
-        <div class="icon"><img src="./logo.png"></div>
-        Withdraw
-    </div>
+    Assalamualaikum dan salam sejahtera.<br><br>
 
-</div>
+    Selamat datang ke sistem BRI MOBILE.
+    Terima kasih kerana terus mempercayai
+    perkhidmatan kami dalam urusan kewangan
+    harian anda.<br><br>
 
-<!-- TOPUP -->
-<div class="box" id="topup">
-    <input id="tamount" placeholder="Jumlah">
-    <button class="btn" onclick="topup()">Top Up</button>
-</div>
+    Kami sentiasa komited untuk memberikan
+    pengalaman transaksi yang lebih selamat,
+    pantas dan mudah digunakan untuk semua
+    pengguna.<br><br>
 
-<!-- WD -->
-<div class="box" id="wd">
-    <input id="wamount" placeholder="Jumlah">
-    <input id="bank" placeholder="Bank">
-    <input id="rek" placeholder="No Rekening">
-    <input id="nama" placeholder="Nama">
-    <button class="btn" onclick="withdraw()">Withdraw</button>
+    Semoga platform ini dapat membantu
+    memudahkan segala urusan anda setiap hari.<br><br>
+
+    Ikhlas daripada,<br><br>
+
+    <b>MUHAMMAD BIN ENDUT</b><br>
+    Pengasas BRI MOBILE
+
+    </p>
 </div>
 
 <!-- HISTORY -->
 <div style="margin:15px;">
-    <h4>Riwayat Transaksi</h4>
-    <div id="log"></div>
+    <h4 style="margin-bottom:10px;">
+        Riwayat Transaksi
+    </h4>
+
+    <div id="log">
+
+        <div class="tx">
+            🟢 Penerimaan Dana RM 50,000.00 [BERJAYA]
+        </div>
+
+        <div class="tx">
+            🟢 Pemindahan RM 12,500.00 [BERJAYA]
+        </div>
+
+        <div class="tx">
+            🟡 Semakan Sistem [PENDING]
+        </div>
+
+    </div>
 </div>
 
 <!-- NAV -->
 <div class="nav">
-    <div><img src="./logo.png"><br>Home</div>
-    <div><img src="./logo.png"><br>Wallet</div>
-    <div><img src="./logo.png"><br>Akun</div>
+
+    <div>
+        <img src="./logo.png"><br>
+        Home
+    </div>
+
+    <div>
+        <img src="./logo.png"><br>
+        Wallet
+    </div>
+
+    <div>
+        <img src="./logo.png"><br>
+        Akaun
+    </div>
+
 </div>
 
 </div>
 
 <script>
-
-const admin="6285194896264";
 
 let user={
     id:"PAKCIK MAN",
@@ -260,125 +279,44 @@ let user={
 };
 
 function formatRM(x){
-    return Number(x||0).toLocaleString("ms-MY",{minimumFractionDigits:2});
-}
-
-/* 🔊 SOUND */
-function sound(type="ok"){
-    let ctx=new (window.AudioContext||window.webkitAudioContext)();
-    let o=ctx.createOscillator();
-    let g=ctx.createGain();
-
-    o.connect(g);
-    g.connect(ctx.destination);
-
-    o.frequency.value=type=="error"?300:700;
-    g.gain.value=0.2;
-
-    o.start();
-    setTimeout(()=>o.stop(),200);
-}
-
-/* 🔊 MONEY IN */
-function moneyIn(){
-    let ctx=new (window.AudioContext||window.webkitAudioContext)();
-
-    let o1=ctx.createOscillator();
-    let o2=ctx.createOscillator();
-    let g=ctx.createGain();
-
-    o1.frequency.value=880;
-    o2.frequency.value=660;
-
-    o1.connect(g);
-    o2.connect(g);
-    g.connect(ctx.destination);
-
-    g.gain.value=0.2;
-
-    o1.start();
-    o2.start();
-
-    setTimeout(()=>{
-        o1.stop();
-        o2.stop();
-    },300);
+    return Number(x||0).toLocaleString(
+        "ms-MY",
+        {minimumFractionDigits:2}
+    );
 }
 
 /* LOGIN */
 function login(){
+
     let id=document.getElementById("id").value;
     let pw=document.getElementById("pw").value;
 
     if(id==user.id && pw==user.pass){
-        document.getElementById("loginPage").style.display="none";
-        document.getElementById("app").style.display="block";
 
-        document.getElementById("saldo").innerText=formatRM(user.saldo);
+        document.getElementById(
+            "loginPage"
+        ).style.display="none";
 
-        document.getElementById("userInfo").innerText =
-        user.nama+" | "+user.id;
+        document.getElementById(
+            "app"
+        ).style.display="block";
+
+        document.getElementById(
+            "saldo"
+        ).innerText=formatRM(user.saldo);
+
+        document.getElementById(
+            "userInfo"
+        ).innerHTML=
+        `
+        ${user.nama}<br>
+        ID Pengguna : ${user.id}
+        `;
 
     }else{
-        alert("Login gagal");
-    }
-}
-
-/* SHOW */
-function show(x){
-    document.getElementById("topup").style.display="none";
-    document.getElementById("wd").style.display="none";
-    document.getElementById(x).style.display="block";
-}
-
-/* LOG */
-function log(t,s="PENDING"){
-    let d=document.createElement("div");
-    d.className="tx";
-    d.innerText=`🟡 ${t} [${s}]`;
-    document.getElementById("log").prepend(d);
-}
-
-/* TOPUP */
-function topup(){
-    let j=document.getElementById("tamount").value;
-
-    if(!j){sound("error");return;}
-
-    let msg=`TOP UP\nID:${user.id}\nRM ${j}\nPENDING`;
-
-    window.location=`https://wa.me/${admin}?text=${encodeURIComponent(msg)}`;
-
-    log("Top Up RM "+j,"PENDING");
-    sound();
-
-    setTimeout(()=>{
-        user.saldo+=Number(j);
-        document.getElementById("saldo").innerText=formatRM(user.saldo);
-
-        moneyIn();
-        log("Saldo Masuk RM "+j,"PENDING");
-    },3000);
-}
-
-/* WITHDRAW */
-function withdraw(){
-    let j=document.getElementById("wamount").value;
-    let bank=document.getElementById("bank").value;
-    let rek=document.getElementById("rek").value;
-    let nama=document.getElementById("nama").value;
-
-    if(!j||!bank||!rek||!nama){
-        sound("error");
-        return;
+        alert("ID atau kata laluan salah");
     }
 
-    let msg=`WITHDRAW\nID:${user.id}\n${nama}\n${bank}\n${rek}\nRM ${j}\nPENDING`;
-
-    window.location=`https://wa.me/${admin}?text=${encodeURIComponent(msg)}`;
-
-    log("Withdraw RM "+j,"PENDING");
-    sound();
 }
 
 </script>
